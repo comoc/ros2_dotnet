@@ -20,7 +20,7 @@ from rosidl_cmake import expand_template
 from rosidl_cmake import generate_files
 from rosidl_cmake import get_newest_modification_time
 from rosidl_cmake import read_generator_arguments
-from rosidl_runtime_c import BASIC_IDL_TYPES_TO_C
+from rosidl_generator_c import BASIC_IDL_TYPES_TO_C
 from rosidl_parser.definition import AbstractGenericString
 from rosidl_parser.definition import AbstractString
 from rosidl_parser.definition import AbstractWString

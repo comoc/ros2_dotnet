@@ -15,6 +15,7 @@
 find_package(ament_cmake_export_assemblies REQUIRED)
 find_package(rmw_implementation_cmake REQUIRED)
 find_package(rmw REQUIRED)
+find_package(rosidl_generator_c REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
 find_package(rosidl_typesupport_c REQUIRED)
 find_package(rosidl_typesupport_interface REQUIRED)
@@ -183,6 +184,7 @@ if(_generated_c_ts_files)
   )
   target_include_directories(${_target_name}
     PUBLIC
+    ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_c
     ${CMAKE_CURRENT_BINARY_DIR}/rosidl_runtime_c
     ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_dotnet
   )
@@ -191,6 +193,7 @@ if(_generated_c_ts_files)
     ${rosidl_generate_interfaces_TARGET} rosidl_typesupport_c)
 
   ament_target_dependencies(${_target_name}
+    "rosidl_generator_c"
     "rosidl_runtime_c"
     "rosidl_typesupport_c"
     "rosidl_typesupport_interface"
@@ -202,6 +205,7 @@ if(_generated_c_ts_files)
   endforeach()
 
   ament_target_dependencies(${_target_name}
+    "rosidl_generator_c"
     "rosidl_runtime_c"
     "rosidl_generator_dotnet"
   )

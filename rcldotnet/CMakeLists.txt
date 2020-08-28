@@ -10,6 +10,7 @@ find_package(rcl_interfaces REQUIRED)
 find_package(rmw REQUIRED)
 find_package(rmw_implementation REQUIRED)
 find_package(rmw_implementation_cmake REQUIRED)
+find_package(rosidl_generator_c REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
 
 find_package(dotnet_cmake_module REQUIRED)
@@ -63,7 +64,7 @@ foreach(_target_name ${_native_sources})
   ament_target_dependencies(${_target_name}
     "builtin_interfaces"
     "rcl"
-    "rosidl_runtime_c"
+    "rosidl_generator_c"
     "rosidl_typesupport_c"
   )
   ament_export_libraries(${_target_name}_native)
@@ -78,7 +79,7 @@ endforeach()
 ament_export_dependencies(ament_cmake)
 ament_export_dependencies(builtin_interfaces)
 ament_export_dependencies(rcl)
-ament_export_dependencies(rosidl_runtime_c)
+ament_export_dependencies(rosidl_generator_c)
 ament_export_dependencies(rosidl_typesupport_c)
 
 if(BUILD_TESTING)
